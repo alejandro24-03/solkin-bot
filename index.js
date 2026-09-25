@@ -1,4 +1,4 @@
-// ============================================================
+============================================================
 //  Sol-Kin Tours — Bot de WhatsApp (webhook)
 //  Basado en el prototipo: menú, tours, cotización, reserva,
 //  política de cancelación y derivación a un asesor humano.
@@ -245,6 +245,7 @@ app.get('/webhook', (req, res) => {
 
 // Recepción de mensajes reales de WhatsApp
 app.post('/webhook', async (req, res) => {
+  console.log('📩 Webhook POST recibido:', JSON.stringify(req.body, null, 2));
   try {
     const entry = req.body.entry?.[0];
     const change = entry?.changes?.[0];
